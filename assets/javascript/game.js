@@ -1,7 +1,7 @@
 var wins = 0;
 var losses = 0;
 var guessesleft = 9;
-var guesses = 0;
+var guesses = [];
 
 
 
@@ -11,6 +11,8 @@ var computerChoices = ["a" , "b" , "c" , "d" , "e" , "f" , "g" , "h" , "i" , "j"
 document.onkeyup = function(event) {
 
 	var userGuess = event.key;
+
+	var guesses = String.fromCharCode(event.keyCode).toLowerCase();
 
 	var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
 
@@ -30,7 +32,9 @@ document.onkeyup = function(event) {
 
 var html = 
 		"<p>Wins: " + wins + "</p>" +
-		"<p>Losses: " + losses + "</p>";
+		"<p>Losses: " + losses + "</p>"
+		"<p> Guesses Left: " + guessesleft + "</p>"
+		"<p> Guesses so far: " + guesses + "</p>";
 
 
 document.querySelector("#stats").innerHTML = html;
